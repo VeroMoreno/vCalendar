@@ -14,6 +14,10 @@ function create_menu() {
 }
 
 function output_menu() {
+if($_POST && $_POST['months']) {}
+if($_POST && $_POST['years']) {}
+if($_POST && $_POST['css']) {}
+
   if($_POST && $_POST['dateSelected']) {
     $date = $_POST['dateSelected'];
     if(update_option('date_selected', $date)) {
