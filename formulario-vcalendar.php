@@ -1,7 +1,7 @@
 <form method="post">
   <h1>Opciones Datepicker</h1>
   <p>Número de meses a mostrar:</p>
-  <select name="months">
+  <select name="months" value="<?php echo ($valor_option = get_option('months_selected'))? $valor_option : '';?>">
      <option value="1">1</option> 
      <option value="2">2</option> 
      <option value="3">3</option>
@@ -9,7 +9,7 @@
   <p>El primer día seleccionable por parte del usuario, en formato DD/MM/YYYY.</p>
 <input type="text" name="dateSelected" value="<?php echo ($valor_option = get_option('date_selected'))? $valor_option : '';?>">
   <p>Número de años que se pueden seleccionar:</p>
-  <select name="years">
+  <select name="years" value="<?php echo ($valor_option = get_option('years_selected'))? $valor_option : '';?>">
      <option value="1">1</option> 
      <option value="2">2</option> 
      <option value="3">3</option>

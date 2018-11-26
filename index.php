@@ -14,10 +14,15 @@ function create_menu() {
 }
 
 function output_menu() {
-if($_POST && $_POST['months']) {}
-if($_POST && $_POST['years']) {}
-if($_POST && $_POST['css']) {}
+$months = $_POST['months'];
+update_option('months_selected', $months);
 
+$years = $_POST['years'];
+update_option('years_selected', $years);
+
+if($_POST && $_POST['css']) {
+
+}	
   if($_POST && $_POST['dateSelected']) {
     $date = $_POST['dateSelected'];
     if(update_option('date_selected', $date)) {
@@ -28,6 +33,7 @@ if($_POST && $_POST['css']) {}
   }
 	include('formulario-vcalendar.php');
 }
+/************************************/
 
 add_action('wp_head', 'head_calendar');
 
@@ -46,16 +52,22 @@ function head_calendar() {
 /*******************************SHORTCODE*/
 
 function v_shortcode(){
+	$number_of_months = get_option('months_selected');
+	$number_of_years = get_option('years_selected');
       ?>
       <div id="datepicker"></div>
       <span class="dt"></span>
 
       <script type="text/javascript">
-        $( function() {
+      var nom = "<?php echo $number_of_months;?>";
+      var nom2 = parseInt(nom);
+      var noy = "<?php echo $number_of_years;?>";
+      var noy2 = parseInt(noy);
 
+        $( function() {
             var opt = {
-                numberOfMonths: 3,
-                yearRange: new Date().getFullYear().toString()+':+3',
+                numberOfMonths: nom2,
+                yearRange: new Date().getFullYear().toString()+':+'+noy2,
                 dateFormat: 'dd/mm/yy'
             };
           $("#datepicker").datepicker(opt);
@@ -65,11 +77,13 @@ function v_shortcode(){
                 $(".dt").html(dateSelected);
           });
 
-            for (var i=0; i < $(".ui-state-default").text().length; i++) {
+		  $("td").addClass("red_selection");
+           /* for (var i=0; i < $(".ui-state-default").text().length; i++) {
               if (i < 10) {
+              	  console.log(i);
                   $("td").addClass("red_selection"); //EN PRUEBAS
                 }
-            }
+            }*/
         });
       </script>
     <?php
