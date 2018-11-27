@@ -1,7 +1,3 @@
-<div id="datepicker"></div>
-<span class="dt"></span>
-
-
 <style type="text/css">
     .rojo {
       background: #d08c8c!important;
@@ -10,7 +6,8 @@
       background: blue!important;
     }
 </style>
-
+<div id="datepicker"></div>
+<span class="dt"></span>
 
 <script type="text/javascript">
   jQuery(document).ready(function($) {
@@ -18,10 +15,9 @@
     var nom2 = parseInt(nom);
     var noy = "<?php echo $n_anios;?>";
     var noy2 = parseInt(noy);
-
     var fecha = "<?php echo $fecha;?>";
     var colores = "<?php echo $colores;?>";
-console.log(colores);
+
     jQuery( function() {
         var opt = {
             numberOfMonths: nom2,
@@ -49,18 +45,15 @@ console.log(colores);
           }
       }*/
 
-      for (var i = 1; i < 10; i++) {
-        if ( jQuery("td .ui-state-default")[i] ) {
+      for (var i = 0; i < 10; i++) {
+        var val = jQuery("td .ui-state-default")[i].text;
+        if ( jQuery("td .ui-state-default")[val].text ) {
            jQuery( "td .ui-state-default" ).addClass("rojo");
         }
       }
 
-
+    });
   });
-
-
-
-   });
 </script>
 
 
