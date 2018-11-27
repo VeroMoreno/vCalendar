@@ -38,11 +38,28 @@
     });
 
 
+/*La variable colores que recojo en PHP no me muestra el valor cuando lo guardo en la configuracion del widget ¿porqué?*/
     var elementos = jQuery("td .ui-state-default");
     var total = elementos.length;
-    /*Tienen que ser los 10 primeros dias del primer mes que se muestra en ROJO*/
-    /*La variable colores que recojo en PHP no me muestra el valor cuando lo guardo en la configuracion del widget ¿porqué?*/
-    /*Al cambiar de fecha se borran las clases rojo y azul*/
+/*Tienen que ser los 10 primeros dias del primer mes que se muestra en ROJO*/
+var d = new Date();
+var month = d.getMonth(); //notas: el valor se encuentra dentro de data-month
+
+/*Al cambiar de fecha se borran las clases rojo y azul creo que tiene que ver con beforeShowDay, quizá metiendolo en el var opt, funcione?*/
+    /*function selectedDay(date, param ) {
+     // Do stuff with param
+     return [true, ''];
+    }
+
+    function doStuff(){
+        var param = "param_to_pass";
+        $(selector).datepicker({
+            beforeShowDay: function (date){
+                return selectedDay(date, param );
+            }
+        }); 
+    }  */
+
      for (var i = 0; i < elementos.length; i++) {
         var parse = parseInt(jQuery("td .ui-state-default")[i].text);
         if (parse <= 10) {
