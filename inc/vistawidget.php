@@ -46,8 +46,9 @@
       }*/
 
       for (var i = 0; i < 10; i++) {
-        var val = jQuery("td .ui-state-default")[i].text;
-        if ( jQuery("td .ui-state-default")[val].text ) {
+        var parse = parseInt(jQuery("td .ui-state-default")[i].text);
+        if (parse < 10) {
+           console.log(parse);
            jQuery( "td .ui-state-default" ).addClass("rojo");
         }
       }
