@@ -16,12 +16,12 @@
     var noy = "<?php echo $n_anios;?>";
     var noy2 = parseInt(noy);
     var fecha = "<?php echo $fecha;?>";
-    var colores = "<?php echo $colores;?>";
+  //  var colores = "<?php echo $colores;?>";
 
     jQuery( function() {
         var opt = {
             numberOfMonths: nom2,
-            yearRange: new Date().getFullYear().toString()+':+'+noy2,
+            yearRange: new Date().getFullYear().toString()+':+'+2,
             dateFormat: 'dd/mm/yy',
             defaultDate: fecha
           };
@@ -37,6 +37,7 @@
 
     });
 
+/*La variable anios al principio me funcionaba perfectamente, las flechas del calendario funcionaban. ahora ya no lo hace y veo que la recoge bien. */
 
 /*La variable colores que recojo en PHP no me muestra el valor cuando lo guardo en la configuracion del widget ¿porqué?*/
     var elementos = jQuery("td .ui-state-default");
