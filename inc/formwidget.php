@@ -23,6 +23,9 @@
 </p>
 <p>
 	<label>Añadir una clase a los diez primeros días, con un css asociado para marcar los días con esa clase en rojo y el resto en azul
-	<input type="text" class="widefat" id="<?php echo $this->get_field_id('clase'); ?>" name="<?php echo $this->get_field_name('clase'); ?>" value="<?php echo esc_attr($instance['clase']); ?>" />
+	  <select class="widefat" id="<?php echo $this->get_field_id('colores'); ?>" name="<?php echo $this->get_field_name('colores'); ?>" value="<?php echo esc_attr($instance['colores']); ?>">
+	     <option value="azul">azul</option> 
+	     <option value="rojo">rojo</option> 
+	  </select>
 	</label>
 </p>

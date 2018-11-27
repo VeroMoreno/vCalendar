@@ -1,11 +1,6 @@
 <?php
 
 class widget_calendar extends WP_Widget {
-	//Constructor de la funcion, definición
-	/*public function __construct(){
-		$opciones = array('class_name' => 'widget_calendar', 'description' => 'Vcalendar en jQuery UI');
-		parent::__construct('widget_calendar', 'Vcalendar configurable', $opciones);
-	}*/
 
 	public function __construct() {
 	    parent::__construct(
@@ -46,7 +41,7 @@ class widget_calendar extends WP_Widget {
 			$n_meses = $instance[ 'meses' ];
 			$n_anios = $instance[ 'anios' ];
 			$fecha = $instance[ 'dia' ];
-			$clase = $instance[ 'clase' ];
+			$colores = $instance[ 'colores' ];
 			include('vistawidget.php');
 
 			//require(plugin_dir_path(__FILE__).'/vistawidget.php');

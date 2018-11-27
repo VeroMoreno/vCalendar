@@ -3,10 +3,11 @@
 
 
 <style type="text/css">
-    td.specialDay, table.ui-datepicker-calendar tbody td.specialDay a { 
-    background: none !important;
-    background-color: #fffac2 !important; 
-    color: #006633;
+    .rojo {
+      background: #d08c8c!important;
+    }
+    .azul {
+      background: blue!important;
     }
 </style>
 
@@ -19,8 +20,8 @@
     var noy2 = parseInt(noy);
 
     var fecha = "<?php echo $fecha;?>";
-    var clase = "<?php echo $clase;?>";
-
+    var colores = "<?php echo $colores;?>";
+console.log(colores);
     jQuery( function() {
         var opt = {
             numberOfMonths: nom2,
@@ -39,30 +40,24 @@
         jQuery(".dt").html(dateSelected);
     });
 
-  /*  for (var i=0; i < $(".ui-state-default").text().length; i++) {
-        if (i < 10) {
-        	  console.log(i);
-            jQuery("td").addClass("caca");
-            console.log(clase);
-            jQuery(".caca a").css({"background-color": "red"});
+
+   /* for (var i=0; i < jQuery(".ui-state-default").text().length; i++) {
+        if (jQuery(".ui-state-default")[i]; < 10) {
+            jQuery( "td .ui-state-default" ).addClass("rojo");
+          } else {
+            jQuery( "td .ui-state-default" ).addClass("azul");
           }
       }*/
+
+      for (var i = 1; i < 10; i++) {
+        if ( jQuery("td .ui-state-default")[i] ) {
+           jQuery( "td .ui-state-default" ).addClass("rojo");
+        }
+      }
+
+
   });
 
-  var eventDates = []; 
-  eventDates[ new Date( '17/04/1985' )] = new Date( '17/04/1985' );
-  eventDates[ new Date( '04/17/1985' )] = new Date( '04/17/1985' );
-
-  jQuery('#datepicker').datepicker('option', 'beforeShowDay', highlightDays);
-
- function highlightDays(date) {
-      for (var i = 0; i < eventDates.length; i++) {
-          if (i < 10) {
-              return [true, 'specialDay'];
-          }
-      }
-      return [true, ''];
-  }
 
 
    });
