@@ -34,24 +34,24 @@
     jQuery("#datepicker").on("change",function(){
         var dateSelected = jQuery(this).val();
         jQuery(".dt").html(dateSelected);
+        
     });
 
 
-   /* for (var i=0; i < jQuery(".ui-state-default").text().length; i++) {
-        if (jQuery(".ui-state-default")[i]; < 10) {
-            jQuery( "td .ui-state-default" ).addClass("rojo");
-          } else {
-            jQuery( "td .ui-state-default" ).addClass("azul");
-          }
-      }*/
-
-      for (var i = 0; i < 10; i++) {
+    var elementos = jQuery("td .ui-state-default");
+    var total = elementos.length;
+    /*Tienen que ser los 10 primeros dias del primer mes que se muestra en ROJO*/
+    /*La variable colores que recojo en PHP no me muestra el valor cuando lo guardo en la configuracion del widget ¿porqué?*/
+    /*Al cambiar de fecha se borran las clases rojo y azul*/
+     for (var i = 0; i < elementos.length; i++) {
         var parse = parseInt(jQuery("td .ui-state-default")[i].text);
-        if (parse < 10) {
-           console.log(parse);
-           jQuery( "td .ui-state-default" ).addClass("rojo");
+        if (parse <= 10) {
+           jQuery("td .ui-state-default" ).eq(i).addClass('rojo');
+        } else {
+          jQuery("td .ui-state-default" ).eq(i).addClass('azul');
         }
       }
+
 
     });
   });
