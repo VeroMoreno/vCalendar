@@ -15,37 +15,32 @@ class widget_calendar extends WP_Widget {
 	    );   
 	}
 	
+	// El metodo que me permite crear el formulario en la pantalla de Widgets.
+	public function form($instance) {
+		require(plugin_dir_path(__FILE__).'/formwidget.php');
+	}
 	
-		// El metodo que me permite crear el formulario en la pantalla de Widgets.
-		public function form($instance)
-		{
-			//require(plugin_dir_path(__FILE__).'/formwidget.php');
-			include('formwidget.php');
-		}
+	//el metodo para actualizar la confi del usuario y grabarlos en BBDD
+	public function update($new_instance, $old_instance) {
+		$instance = $old_instance;
 		
-		//el metodo para actualizar la confi del usuario y grabarlos en BBDD
-		public function update( $new_instance, $old_instance ) {
-			$instance = $old_instance;
-			
-			$instance['meses'] = $new_instance['meses'];
-			$instance['dia'] = strip_tags($new_instance['dia']);
-			$instance['anios'] = strip_tags($new_instance['anios']);
-			$instance['clase'] = strip_tags($new_instance['clase']);
-			
-			//repitiriamos por cada campo de nuestro widget la linea de arriba con el literal correspondiente
-			return $instance;
-		}	
+		$instance['meses'] = $new_instance['meses'];
+		$instance['dia'] = strip_tags($new_instance['dia']);
+		$instance['anios'] = strip_tags($new_instance['anios']);
+		$instance['clase'] = strip_tags($new_instance['clase']);
+		
+		//repitiriamos por cada campo de nuestro widget la linea de arriba con el literal correspondiente
+		return $instance;
+	}	
 
-		//visualización del plugin
-		public function widget( $args, $instance ) {
-			$n_meses = $instance[ 'meses' ];
-			$n_anios = $instance[ 'anios' ];
-			$fecha = $instance[ 'dia' ];
-			$colores = $instance[ 'colores' ];
-			include('vistawidget.php');
+	//visualización del plugin
+	public function widget($args, $instance) {
+		$n_meses = $instance[ 'meses' ];
+		$n_anios = $instance[ 'anios' ];
+		$fecha = $instance[ 'dia' ];
+		$colores = $instance[ 'colores' ];
 
-			//require(plugin_dir_path(__FILE__).'/vistawidget.php');
-			
-		}
+		require(plugin_dir_path(__FILE__).'/vistawidget.php');			
+	}
 }
 ?>

@@ -1,9 +1,9 @@
 <style type="text/css">
     .rojo {
-      background: #d08c8c!important;
+      background: #edaeae!important;
     }
     .azul {
-      background: blue!important;
+      background: #cee1ed!important;
     }
 </style>
 <div id="datepicker"></div>
@@ -34,7 +34,7 @@
     jQuery("#datepicker").on("change",function(){
         var dateSelected = jQuery(this).val();
         jQuery(".dt").html(dateSelected);
-        
+
     });
 
 

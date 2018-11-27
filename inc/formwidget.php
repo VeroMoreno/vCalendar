@@ -1,5 +1,4 @@
 <p>
-	<!-- aqui recogemos el valor del textarea -->
 	<label>Numero de meses a mostrar
 	  <select class="widefat" id="<?php echo $this->get_field_id('meses'); ?>" name="<?php echo $this->get_field_name('meses'); ?>" value="<?php echo esc_attr($instance['meses']); ?>">
 	     <option value="1">1</option> 
